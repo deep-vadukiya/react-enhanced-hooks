@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "react": "^16.14.0"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com-personal:deeppatel06/react-enhanced-hooks.git"
@@ -16,6 +19,7 @@
     "custom",
     "hooks"
   ],
-  "author": "Deep Patel",
-  "license": "ISC"
+  "author": "Deep Patel ",
+  "license": "ISC",
+  "homepage": "https://github.com/deeppatel06/react-enhanced-hooks"
 }
