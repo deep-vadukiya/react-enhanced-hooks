@@ -1,6 +1,6 @@
 //
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // 1. hook for localStorage
 function useLocalStorage(key, initialValue) {
@@ -17,4 +17,24 @@ function useLocalStorage(key, initialValue) {
   return [value, setStoredValue];
 }
 
-export { useLocalStorage };
+// 2. hook for onlineStatus
+function useOnlineStatus() {
+  const [online, setOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    const handleOnline = () => setOnline(true);
+    const handleOffline = () => setOnline(false);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
+  return online;
+}
+
+export { useLocalStorage, useOnlineStatus };
