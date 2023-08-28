@@ -2,7 +2,7 @@
   "name": "react-enhanced-hooks",
   "version": "1.0.3",
   "description": "A useful custom react hooks.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
