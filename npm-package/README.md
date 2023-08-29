@@ -81,3 +81,25 @@ function App() {
 
 export default App;
 ```
+
+### 4. useOffSetTop
+
+A useOffSetTop hook can be use to check the scrolled pixel of the current page.
+For instance to update styling of the header when user scrolls the few pixels.
+
+```
+import React from 'react';
+import useOffSetTop from 'react-enhanced-hooks';
+
+function MyComponent() {
+  const isScrolled = useOffSetTop(200); // default value: 100
+
+  return (
+    <div>
+      {isScrolled ? <p>Scrolled</p> : <p>Not Scrolled Yet</p>}
+    </div>
+  );
+}
+
+export default MyComponent;
+```
