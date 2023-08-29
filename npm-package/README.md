@@ -60,3 +60,24 @@ function App() {
 
 export default App;
 ```
+
+### 3. useHover
+
+A useHover hook designed to help you detect whether an element is being hovered over. It returns a ref that you can attach to the element you want to track for hover events, and a boolean value indicating whether that element is currently being hovered over.
+
+```
+import React from 'react';
+import { useHover } from 'react-enhanced-hooks';
+
+function App() {
+  const [elementRef, isHovered] = useHover();
+
+  return (
+    <div ref={elementRef}>
+      <p>{isHovered ? "Hover over element" : "Hover to check"}</p>
+    </div>
+  );
+}
+
+export default App;
+```
