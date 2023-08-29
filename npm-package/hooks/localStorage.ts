@@ -2,22 +2,17 @@
 
 import { useState } from "react";
 
-// 1. hook for localStorage
-
 /**
- * regular comment goes here ...
- * @param {string} type pass the key name to store the localStorage
- * @param {string} args this is the arg message
+ * Accepts the pair of key and value pair.
+ *
+ * It supports strings, number, boolean or object
+ *
+ * ⚠️ Note that it will consider true/false as a boolean no matter if it's string or boolean
  */
-
-interface objectInterface {
-  id: number;
-  title: string;
-}
 
 export default function useLocalStorage(
   key: string,
-  initialValue: string | number | objectInterface[] | objectInterface
+  initialValue: string | number | any[] | any
 ) {
   const [value, setValue] = useState(() => {
     const storedValue = localStorage.getItem(key);
