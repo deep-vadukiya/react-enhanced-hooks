@@ -13,7 +13,7 @@ import { useState } from "react";
 export default function useLocalStorage(
   key: string,
   initialValue: string | number | any[] | any
-) {
+): any[] {
   const [value, setValue] = useState(() => {
     const storedValue = localStorage.getItem(key);
     return storedValue !== null ? JSON.parse(storedValue) : initialValue;
