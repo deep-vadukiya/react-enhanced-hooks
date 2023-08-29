@@ -1,6 +1,6 @@
 //
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, RefObject } from "react";
 
 /**
  * Attach the HTML reference to the ref to the element you want to track for hover events. Use the isHovered value in your component to display whether the element is currently being hovered over.
@@ -12,9 +12,12 @@ import { useState, useEffect, useRef } from "react";
  * isHovered - boolean value if hovers or not.
  */
 
-export default function useHover(): any[] {
+export default function useHover<T extends HTMLElement>(): [
+  RefObject<T>,
+  boolean
+] {
   const [isHovered, setIsHovered] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<T>(null);
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
