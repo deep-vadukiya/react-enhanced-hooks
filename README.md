@@ -125,3 +125,28 @@ function MyComponent() {
 
 export default MyComponent;
 ```
+
+### 6. useDocumentTitle
+
+A useDocumentTitle hook can be use to update the title of current document page.
+pass the any string value which will be updated as a title of this page.
+
+```
+
+import React, { useEffect } from "react";
+import useDocumentTitle from "react-enhanced-hooks";
+
+function MyComponent() {
+  useEffect(() => {
+    useDocumentTitle("Home Page");
+  }, []);
+
+  return (
+    <div>
+      <p>Hello world</p>
+    </div>
+  );
+}
+
+export default MyComponent;
+```
