@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
  * @returns boolean value which represents if the internet is available or not
  */
 
-export default function useOnlineStatus(): any {
+export default function useOnlineStatus(): boolean {
   const isSupported = typeof window !== "undefined" && "ononline" in window;
   const [online, setOnline] = useState(isSupported ? navigator.onLine : true);
 
