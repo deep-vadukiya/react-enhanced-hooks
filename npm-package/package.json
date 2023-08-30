@@ -1,14 +1,10 @@
 {
   "name": "react-enhanced-hooks",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "A useful custom react hooks.",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
   },
   "repository": {
     "type": "git",
@@ -22,5 +18,9 @@
   ],
   "author": "Deep Patel ",
   "license": "ISC",
-  "homepage": "https://github.com/deeppatel06/react-enhanced-hooks"
+  "homepage": "https://github.com/deeppatel06/react-enhanced-hooks",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
 }
