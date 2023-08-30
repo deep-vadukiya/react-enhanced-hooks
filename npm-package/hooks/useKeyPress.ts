@@ -1,6 +1,8 @@
 //
 
 import { useEffect, useState } from "react";
+// typescript interface for keyboard events
+import { KeyValues } from "../utils/keyValueList";
 
 /**
  * this hook can be used to track the key events to perform certain actions.
@@ -15,7 +17,7 @@ import { useEffect, useState } from "react";
  * @returns returns the boolean value which indicates if the desired key is pressed or not
  */
 
-export default function useKeyPress(targetKey: string): boolean {
+export default function useKeyPress(targetKey: keyof KeyValues): boolean {
   const [keyPressed, setKeyPressed] = useState(false);
 
   const handleKeyDown = ({ key }) => {
