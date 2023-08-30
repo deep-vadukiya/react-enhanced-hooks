@@ -103,3 +103,25 @@ function MyComponent() {
 
 export default MyComponent;
 ```
+
+### 5. useKeyPress
+
+A useKeyPress hook can be use to track the keyboards key events.
+Hers is the official documentation from MDN for [Key values for keyboard events](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values).
+
+```
+import React from 'react';
+import useOffSetTop from 'react-enhanced-hooks';
+
+function MyComponent() {
+  const isEscapePressed = useKeyPress('Escape');
+
+  return (
+    <div>
+      <p>{isEscapePressed ? 'Escape key pressed' : 'Escape key not pressed'}</p>
+    </div>
+  );
+}
+
+export default MyComponent;
+```
