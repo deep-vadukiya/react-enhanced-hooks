@@ -6,6 +6,7 @@ import useHover from "./hooks/useHover";
 import useOffSetTop from "./hooks/useOffSetTop";
 import useKeyPress from "./hooks/useKeyPress";
 import useDocumentTitle from "./hooks/useDocumentTitle";
+import useCopyToClipBoard from "./hooks/useCopyToClipBoard";
 
 export {
   useLocalStorage,
@@ -14,4 +15,5 @@ export {
   useOffSetTop,
   useKeyPress,
   useDocumentTitle,
+  useCopyToClipBoard,
 };
