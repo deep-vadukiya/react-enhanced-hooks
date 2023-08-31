@@ -150,3 +150,28 @@ function MyComponent() {
 
 export default MyComponent;
 ```
+
+### 7. useCopyToClipBoard
+
+A useDocumentTitle hook can be use to copy the string value to the users clipBoard. this hook returns the object containing `isCopied` and `copyToClipBoard` which can be use to manage the copy status and string which needs to be copy.
+
+```
+import useCopyToClipBoard from "react-enhanced-hooks";
+
+function MyComponent() {
+  const { isCopied, copyToClipBoard } = useCopyToClipBoard();
+
+  const handleCopy = () => {
+    const tempString = "Dummy hello world!";
+    copyToClipBoard(tempString);
+  };
+
+  return (
+    <div>
+      <button onClick={handleCopy}>{isCopied ? "Copied!" : "Copy"}</button>
+    </div>
+  );
+}
+
+export default MyComponent;
+```
