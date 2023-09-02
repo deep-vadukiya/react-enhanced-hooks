@@ -7,6 +7,7 @@ import useOffSetTop from "./hooks/useOffSetTop";
 import useKeyPress from "./hooks/useKeyPress";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 import useCopyToClipBoard from "./hooks/useCopyToClipBoard";
+import useTabFocusEffect from "./hooks/useTabFocusEffect";
 
 export {
   useLocalStorage,
@@ -16,4 +17,5 @@ export {
   useKeyPress,
   useDocumentTitle,
   useCopyToClipBoard,
+  useTabFocusEffect,
 };
