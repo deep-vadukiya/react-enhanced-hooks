@@ -8,6 +8,7 @@ import useKeyPress from "./hooks/useKeyPress";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 import useCopyToClipBoard from "./hooks/useCopyToClipBoard";
 import useTabFocusEffect from "./hooks/useTabFocusEffect";
+import useLocalStorageChange from "./hooks/useLocalStorageChange";
 
 export {
   useLocalStorage,
@@ -18,4 +19,5 @@ export {
   useDocumentTitle,
   useCopyToClipBoard,
   useTabFocusEffect,
+  useLocalStorageChange,
 };
