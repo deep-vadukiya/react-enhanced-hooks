@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:deeppatel06/react-enhanced-hooks.git"
+    "url": "git@github.com:deep-vadukiya/react-enhanced-hooks.git"
   },
   "keywords": [
     "javascript",
@@ -16,9 +16,9 @@
     "custom",
     "hooks"
   ],
-  "author": "Deep Patel ",
+  "author": "Deep Vadukiya",
   "license": "ISC",
-  "homepage": "https://github.com/deeppatel06/react-enhanced-hooks",
+  "homepage": "https://github.com/deep-vadukiya/react-enhanced-hooks",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
