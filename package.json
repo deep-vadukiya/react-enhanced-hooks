@@ -1,6 +1,6 @@
 {
   "name": "react-enhanced-hooks",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A useful custom react hooks.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
