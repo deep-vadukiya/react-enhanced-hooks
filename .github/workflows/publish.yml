@@ -1,4 +1,5 @@
 name: Publish
+
 on:
   workflow_run:
     workflows: [CI]
@@ -32,4 +33,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.AGITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
