@@ -9,7 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup",
     "release": "pnpm run build && changeset publish",
-    "lint": "tsc"
+    "lint": "tsc",
+    "doc:dev": "next",
+    "doc:build": "next build",
+    "doc:start": "next start"
   },
   "exclude": [
     "docs",
@@ -52,5 +55,10 @@
     "@changesets/cli": "^2.27.9",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "next": "^14.2.15",
+    "nextra": "^3.0.15",
+    "nextra-theme-docs": "^3.0.15"
   }
 }
