@@ -11,6 +11,10 @@
     "release": "pnpm run build && changeset publish",
     "lint": "tsc"
   },
+  "exclude": [
+    "docs",
+    ".github"
+  ],
   "publishConfig": {
     "access": "public"
   },
