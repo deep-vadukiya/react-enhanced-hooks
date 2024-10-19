@@ -8,7 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup",
-    "release": "pnpm run build && changeset publish",
+    "release": "pnpm run build && cd dist && changeset publish",
     "lint": "tsc"
   },
   "publishConfig": {
