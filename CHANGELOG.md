@@ -1,5 +1,11 @@
 # react-enhanced-hooks
 
+## 2.0.3
+
+### Patch Changes
+
+- 1ddbab7: node-version: 20.x
+
 ## 2.0.2
 
 ### Patch Changes
