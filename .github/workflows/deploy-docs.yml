@@ -32,7 +32,7 @@ jobs:
 
     - name: Deploy to GitHub Pages
       run: |
-        git remote set-url origin https://git:${AGITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         pnpm run docs:deploy -u "github-actions-bot <support+actions@github.com>"
       env:
-        GITHUB_TOKEN: ${{ secrets.AGITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
