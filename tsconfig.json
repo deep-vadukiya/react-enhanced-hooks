@@ -12,6 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
     "module": "esnext",
     "esModuleInterop": true,
     "resolveJsonModule": true,
