@@ -1,6 +1,7 @@
 {
   "name": "react-enhanced-hooks",
   "version": "2.0.3",
+  "homepage": "https://deep-vadukiya.github.io/react-enhanced-hooks",
   "description": "A useful custom react hooks.",
   "type": "module",
   "main": "dist/index.js",
@@ -49,7 +50,6 @@
   ],
   "author": "Deep Vadukiya",
   "license": "ISC",
-  "homepage": "https://github.com/deep-vadukiya/react-enhanced-hooks",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
