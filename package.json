@@ -14,7 +14,7 @@
     "docs:dev": "next",
     "docs:build": "next build",
     "docs:start": "next start",
-    "docs:deploy": "gh-pages -d out"
+    "docs:deploy": "gh-pages -d build"
   },
   "exclude": [
     "docs",
