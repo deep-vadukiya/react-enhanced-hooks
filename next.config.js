@@ -5,9 +5,9 @@ import nextra from "nextra";
 
 
 const nextConfig = {
-  images: {
-    unoptimized: true // mandatory, otherwise won't export
-  },
+  // images: {
+  //   unoptimized: true // mandatory, otherwise won't export
+  // },
   distDir: 'out',
 }
 
