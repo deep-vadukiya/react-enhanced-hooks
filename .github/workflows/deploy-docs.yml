@@ -29,6 +29,8 @@ jobs:
       run: pnpm run docs:build
 
     - name: Deploy to GitHub Pages
-      run: pnpm run docs:deploy
+      run: |
+        git remote set-url origin https://git:${AGITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        pnpm run docs:deploy -- -u "github-actions-bot <support+actions@github.com>"
       env:
         GITHUB_TOKEN: ${{ secrets.AGITHUB_TOKEN }}
