@@ -3,16 +3,18 @@
 // next.config.js
 import nextra from "nextra";
 
+
+const nextConfig = {
+  images: {
+    unoptimized: true // mandatory, otherwise won't export
+  }
+  // Optional: Change the output directory `out` -> `dist`
+  // distDir: "build"
+}
+
 const withNextra = nextra({
   theme: "nextra-theme-docs",
   themeConfig: "./theme.config.js",
-  typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
-    ignoreBuildErrors: true,
-  },
 });
 
-export default withNextra();
+export default withNextra(nextConfig);
