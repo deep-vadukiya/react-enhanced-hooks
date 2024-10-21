@@ -8,6 +8,8 @@ export default {
   },
   docsRepositoryBase:
     "https://github.com/deep-vadukiya/react-enhanced-hooks",
+  editLink: { component: null },
+  feedback: { content: null },
   footer: {
     component: false
   },
