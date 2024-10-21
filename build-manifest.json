@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/NyD-FcKVuWSAZj5-3oY_G/_buildManifest.js",
-    "static/NyD-FcKVuWSAZj5-3oY_G/_ssgManifest.js"
+    "static/DPX7gz5l0jGIvxkGEzxVb/_buildManifest.js",
+    "static/DPX7gz5l0jGIvxkGEzxVb/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -15,7 +15,7 @@
       "static/chunks/framework-0cbe3b56a5f66701.js",
       "static/chunks/main-7ebb6232c5c37d9c.js",
       "static/chunks/905-d9039f8a61875632.js",
-      "static/chunks/pages/index-514d6193089e05cc.js"
+      "static/chunks/pages/index-a2891134b5cc6a68.js"
     ],
     "/_app": [
       "static/chunks/webpack-aa3c88aa67168ae0.js",
@@ -53,28 +53,28 @@
       "static/chunks/framework-0cbe3b56a5f66701.js",
       "static/chunks/main-7ebb6232c5c37d9c.js",
       "static/chunks/905-d9039f8a61875632.js",
-      "static/chunks/pages/documentation/hooks/use-local-storage-ff6a1549555db9a7.js"
+      "static/chunks/pages/documentation/hooks/use-local-storage-94ddee2707cd0e69.js"
     ],
     "/documentation/hooks/use-online-status": [
       "static/chunks/webpack-aa3c88aa67168ae0.js",
       "static/chunks/framework-0cbe3b56a5f66701.js",
       "static/chunks/main-7ebb6232c5c37d9c.js",
       "static/chunks/905-d9039f8a61875632.js",
-      "static/chunks/pages/documentation/hooks/use-online-status-7d1f0a46b8569691.js"
+      "static/chunks/pages/documentation/hooks/use-online-status-5df585f8a7378f23.js"
     ],
     "/documentation/installation": [
       "static/chunks/webpack-aa3c88aa67168ae0.js",
       "static/chunks/framework-0cbe3b56a5f66701.js",
       "static/chunks/main-7ebb6232c5c37d9c.js",
       "static/chunks/905-d9039f8a61875632.js",
-      "static/chunks/pages/documentation/installation-3b09bd5da6f5ec86.js"
+      "static/chunks/pages/documentation/installation-b9f81450bb175d28.js"
     ],
     "/documentation/introduction": [
       "static/chunks/webpack-aa3c88aa67168ae0.js",
       "static/chunks/framework-0cbe3b56a5f66701.js",
       "static/chunks/main-7ebb6232c5c37d9c.js",
       "static/chunks/905-d9039f8a61875632.js",
-      "static/chunks/pages/documentation/introduction-662040ceaf8ff5a5.js"
+      "static/chunks/pages/documentation/introduction-8ce15e97754d8058.js"
     ]
   },
   "ampFirstPages": []
