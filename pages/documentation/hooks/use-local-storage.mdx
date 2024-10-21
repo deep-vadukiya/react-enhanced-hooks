@@ -1,0 +1,27 @@
+## useLocalStorage.mdx
+
+A hook to easily manage local storage values.
+
+```
+import React from 'react';
+import { useLocalStorage } from 'react-enhanced-hooks';
+
+function App() {
+  const [name, setName] = useLocalStorage('name', '');
+  // const [theme, setTheme] = useLocalStorage('theme', 'light');
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter your name"
+      />
+      <p>Hello, {name || 'stranger'}!</p>
+    </div>
+  );
+}
+
+export default App;
+```

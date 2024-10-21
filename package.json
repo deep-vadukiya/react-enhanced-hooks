@@ -2,6 +2,7 @@
   "name": "react-enhanced-hooks",
   "version": "2.0.2",
   "description": "A useful custom react hooks.",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -9,8 +10,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup",
     "release": "pnpm run build && changeset publish",
-    "lint": "tsc"
+    "lint": "tsc",
+    "docs:dev": "next",
+    "docs:build": "next build",
+    "docs:export": "next export -o out",
+    "docs:start": "next start",
+    "docs:deploy": "pnpm run docs:export && gh-pages -d out"
   },
+  "exclude": [
+    "docs",
+    ".github"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -48,5 +58,10 @@
     "@changesets/cli": "^2.27.9",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "next": "^14.2.15",
+    "nextra": "^3.0.15",
+    "nextra-theme-docs": "^3.0.15"
   }
 }
