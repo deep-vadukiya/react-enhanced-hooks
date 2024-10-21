@@ -13,9 +13,8 @@
     "lint": "tsc",
     "docs:dev": "next",
     "docs:build": "next build",
-    "docs:export": "next export -o out",
     "docs:start": "next start",
-    "docs:deploy": "pnpm run docs:export && gh-pages -d out"
+    "docs:deploy": "pnpm run docs:build && gh-pages -d out"
   },
   "exclude": [
     "docs",
