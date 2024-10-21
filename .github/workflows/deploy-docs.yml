@@ -28,11 +28,6 @@ jobs:
     - name: Build Documentation
       run: pnpm run docs:build
 
-    - name: Configure Git for GitHub Actions
-      run: |
-        git config --global user.name "github-actions-bot"
-        git config --global user.email "support+actions@github.com"
-
     - name: Deploy to GitHub Pages
       run: |
         git remote set-url origin https://git:${AGITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
