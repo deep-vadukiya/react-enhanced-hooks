@@ -3,8 +3,14 @@
 export default {
   index: {
     title: 'Home',
+    type: 'page',
     theme: {
-      footer: false,
+      layout: 'raw',
+      footer: false
     }
-  }
+  },
+  documentation: {
+    title: 'Documentation',
+    type: 'page',
+  },
 }

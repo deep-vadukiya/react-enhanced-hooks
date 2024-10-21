@@ -8,4 +8,7 @@ export default {
   },
   docsRepositoryBase:
     "https://github.com/deep-vadukiya/react-enhanced-hooks",
+  footer: {
+    component: false
+  },
 };
