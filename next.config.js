@@ -8,7 +8,7 @@ const nextConfig = {
   images: {
     unoptimized: true // mandatory, otherwise won't export
   },
-  distDir: 'build',
+  distDir: 'out',
 }
 
 const withNextra = nextra({

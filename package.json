@@ -13,8 +13,9 @@
     "lint": "tsc",
     "docs:dev": "next",
     "docs:build": "next build",
+    "docs:export": "next build && touch out/.nojekyll",
     "docs:start": "next start",
-    "docs:deploy": "gh-pages -d build"
+    "docs:deploy": "gh-pages -d out -t true"
   },
   "exclude": [
     "docs",
