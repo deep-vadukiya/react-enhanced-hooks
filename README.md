@@ -8,7 +8,7 @@ Please visit the site for more information: [site](https://deep-vadukiya.github.
 
 - [installation](https://deep-vadukiya.github.io/react-enhanced-hooks/documentation/installation)
 
-- [Offered Hooks and How to use Hooks](http://localhost:3000/documentation/hooks/use-local-storage)
+- [Offered Hooks and How to use Hooks](https://deep-vadukiya.github.io/react-enhanced-hooks/documentation/hooks/use-local-storage)
 
 install with npm:
 
