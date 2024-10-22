@@ -1,5 +1,6 @@
 //
 
+import Link from "next/link";
 import CodeBlock from "./code.mdx";
 
 const SVGComponent = (props) => (
@@ -188,13 +189,21 @@ export function Hero() {
           </div>
 
           <div className="flex justify-center mt-8 gap-6">
-            <button className="rounded-lg bg-[#008AE6] p-2 px-4">
+            <Link
+              href="/documentation"
+              className="rounded-lg bg-[#008AE6] p-2 px-4"
+            >
               Get Started
-            </button>
+            </Link>
 
-            <button className="rounded-lg bg-[#008AE6] p-2 px-4">
-              View on GitHub
-            </button>
+            <a
+              href="https://github.com/deep-vadukiya/react-enhanced-hooks"
+              target="_blank"
+            >
+              <button className="rounded-lg bg-[#008AE6] p-2 px-4">
+                View on GitHub
+              </button>
+            </a>
           </div>
         </div>
       </section>
