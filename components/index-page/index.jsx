@@ -2,10 +2,8 @@
 
 export function IndexPage() {
   return (
-    <div>
-      <div className="flex-auto justify-center">
-        <p className="block justify-self-center text-xl text-red-600">Hello</p>
-      </div>
+    <div className="graph-background h-dvh" style={{ height: "100vh" }}>
+      <div className="flex-auto justify-center"></div>
     </div>
   );
 }
