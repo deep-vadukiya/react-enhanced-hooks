@@ -39,10 +39,4 @@ export const pageMap = [{
       "sidebarTitle": "Introduction"
     }
   }]
-}, {
-  name: "index",
-  route: "/",
-  frontMatter: {
-    "sidebarTitle": "Index"
-  }
 }];
