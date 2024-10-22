@@ -2,12 +2,11 @@
 
 export default {
   index: {
-    title: 'Home',
-    type: 'page',
+    type: "page",
+    display: "hidden",
     theme: {
-      layout: 'raw',
-      footer: false
-    }
+      layout: "raw",
+    },
   },
   documentation: {
     title: 'Documentation',

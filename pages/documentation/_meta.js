@@ -1,7 +1,7 @@
 //
 
 export default {
-    'introduction': 'Introduction',
+    'index': 'Introduction',
     "installation": "Installation",
     "hooks": "Hooks 🪝"
 }

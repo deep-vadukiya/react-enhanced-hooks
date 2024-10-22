@@ -1,0 +1,123 @@
+---
+title: "useHover - React Enhanced Hooks"
+---
+
+# `useHover` Hook
+
+The `useHover` hook provides an easy way to track whether an element is being hovered over by the user. This is especially useful for enhancing the user interface with hover-based interactions, such as tooltips, highlights, or animations.
+
+In this guide, we’ll walk through how to use the `useHover` hook in your React projects, including setup, usage, and an example implementation.
+
+## Usage
+
+The `useHover` hook is simple to use and returns two values:
+
+1. **elementRef**: A ref that you attach to the DOM element you want to track.
+2. **isHovered**: A boolean that indicates whether the element is currently being hovered.
+
+### Example
+
+Here is an example of how to use the `useHover` hook in a component:
+
+```jsx copy
+import React from "react";
+import { useHover } from "react-enhanced-hooks";
+
+function App() {
+  const [elementRef, isHovered] = useHover();
+
+  return (
+    <div ref={elementRef}>
+      <p>{isHovered ? "Hover over element" : "Hover to check"}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+## How It Works
+
+- **elementRef**: This ref is assigned to the DOM element (in this case, a `div`). It tells the hook which element to monitor for hover events.
+- **isHovered**: This boolean is updated in real-time and reflects whether the user is currently hovering over the element.
+
+Whenever the user hovers over the `div`, the text will update to "Hover over element." When the hover ends, the text changes back to "Hover to check."
+
+## Hook Signature
+
+The `useHover` hook follows this simple signature:
+
+```ts
+const [elementRef, isHovered] = useHover();
+```
+
+**Returns**: - **elementRef**: A React ref object that you attach to the element you want to track. - **isHovered**: A boolean value representing whether the element is currently being hovered over.
+
+## Key Features
+
+- **Easy Integration**: Attach the returned `elementRef` to any DOM element, and you'll instantly know when it's being hovered.
+- **Real-time Updates**: The `isHovered` boolean updates in real-time, allowing for seamless hover state detection.
+- **Lightweight**: The hook is lightweight, making it a perfect fit for small and large-scale applications alike.
+- **Reusable**: You can use the `useHover` hook across multiple elements and components by creating separate instances.
+
+This hook is ideal for tooltips, UI hover effects, and conditional rendering based on hover state.
+
+## Advanced Usage
+
+### Multiple Hover Elements
+
+You can track hover states for multiple elements by creating separate instances of the `useHover` hook for each element:
+
+```jsx copy
+import React from "react";
+import { useHover } from "react-enhanced-hooks";
+
+function App() {
+  const [hoverRef1, isHovered1] = useHover();
+  const [hoverRef2, isHovered2] = useHover();
+
+  return (
+    <div>
+      <div ref={hoverRef1}>
+        <p>{isHovered1 ? "Hovering over element 1" : "Hover over element 1"}</p>
+      </div>
+      <div ref={hoverRef2}>
+        <p>{isHovered2 ? "Hovering over element 2" : "Hover over element 2"}</p>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Styling Based on Hover State
+
+You can dynamically change styles based on whether the element is being hovered:
+
+```jsx copy
+import React from "react";
+import { useHover } from "react-enhanced-hooks";
+
+function HoverBox() {
+  const [hoverRef, isHovered] = useHover();
+
+  return (
+    <div
+      ref={hoverRef}
+      style={{
+        width: "200px",
+        height: "200px",
+        backgroundColor: isHovered ? "lightblue" : "lightgray",
+        transition: "background-color 0.3s",
+      }}
+    >
+      <p>{isHovered ? "Hovered!" : "Hover me!"}</p>
+    </div>
+  );
+}
+
+export default HoverBox;
+```
+
+In this example, the background color of the box changes when hovered over, and transitions smoothly using CSS.
