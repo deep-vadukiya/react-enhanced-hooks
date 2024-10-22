@@ -1,14 +1,25 @@
-## useLocalStorage.mdx
+---
+title: "useLocalStorage - React Enhanced Hooks"
+---
 
-A hook to easily manage local storage values.
+# `useLocalStorage` Hook
 
-```
-import React from 'react';
-import { useLocalStorage } from 'react-enhanced-hooks';
+The `useLocalStorage` hook allows you to easily store and persist data in the browser's local storage. It works similarly to React's `useState` hook but saves the value in local storage, ensuring the data persists across page reloads.
+
+## Usage
+
+To use the `useLocalStorage` hook, first import it from the `react-enhanced-hooks` library. You can pass a key (for local storage) and an initial value to it.
+
+### Example: Storing Name in Local Storage
+
+Below is an example that stores the user's name in local storage and retrieves it when the component re-renders:
+
+```jsx
+import React from "react";
+import { useLocalStorage } from "react-enhanced-hooks";
 
 function App() {
-  const [name, setName] = useLocalStorage('name', '');
-  // const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [name, setName] = useLocalStorage("name", "");
 
   return (
     <div>
@@ -18,10 +29,72 @@ function App() {
         onChange={(e) => setName(e.target.value)}
         placeholder="Enter your name"
       />
-      <p>Hello, {name || 'stranger'}!</p>
+      <p>Hello, {name || "stranger"}!</p>
     </div>
   );
 }
 
 export default App;
 ```
+
+## How It Works
+
+1. Initial State: The `useLocalStorage` hook initializes with a key `'name'` and an initial value `''`.
+2. State Persistence: Whenever the `name` changes, the updated value is stored in local storage under the key `'name'`. Even after the page is refreshed or reopened, the saved name will be retrieved from local storage and used as the component's state.
+3. Updating State: The `setName` function updates both the component's state and the value in local storage.
+
+## Hook Signature
+
+```ts copy
+const [storedValue, setStoredValue] = useLocalStorage<T>(
+  key: string,
+  initialValue: T
+);
+```
+
+- **key**: A unique key to store and retrieve the value from local storage.
+- **initialValue**: The initial state value if nothing is found in local storage.
+- **Returns**: An array with the current stored value and a function to update it.
+
+## Key Features
+
+- **Persistent State**: The value persists even after a page refresh.
+- **Custom Data Types**: The hook can store any type of data (string, number, object, etc.).
+- **Efficient**: Minimizes the need for repetitive `localStorage.getItem` and `localStorage.setItem` calls in your components.
+
+## Full Example
+
+You can use the `useLocalStorage` hook to store more than just simple strings. Here's another example to manage a theme preference (light/dark mode):
+
+```jsx copy
+import React from "react";
+import { useLocalStorage } from "react-enhanced-hooks";
+
+function App() {
+  const [name, setName] = useLocalStorage("name", "");
+  const [theme, setTheme] = useLocalStorage("theme", "light");
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <div className={theme}>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter your name"
+      />
+      <p>Hello, {name || "stranger"}!</p>
+      <button onClick={toggleTheme}>
+        Switch to {theme === "light" ? "dark" : "light"} mode
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+This hook makes local storage easy to manage and integrates well with any React component.
