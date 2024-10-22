@@ -3,6 +3,8 @@
 // next.config.js
 import nextra from "nextra";
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 
 const nextConfig = {
   /**
@@ -17,8 +19,8 @@ const nextConfig = {
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
-  basePath: "/nextjs-github-pages",
-
+  basePath: isProduction ? "/react-enhanced-hooks" : '',
+  // distDir: 'out',
   /**
    * Disable server-based image optimization. Next.js does not support
    * dynamic features with static exports.
