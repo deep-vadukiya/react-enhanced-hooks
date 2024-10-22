@@ -1,20 +1,82 @@
-## useOnlineStatus
+---
+title: "useOnlineStatus - React Enhanced Hooks"
+---
 
-A hook to monitor the user's online/offline status.
+# `useOnlineStatus` Hook
 
-```
-import React from 'react';
-import { useOnlineStatus } from 'react-enhanced-hooks';
+The `useOnlineStatus` hook helps you easily detect the user's network connectivity status in a React component. It tracks whether the user is currently online or offline and updates the status in real-time, allowing you to respond to connectivity changes in your application.
+
+## Usage
+
+To use the `useOnlineStatus` hook, simply import it from the `react-enhanced-hooks` package and use it in your component to check the user's current network status.
+
+### Example: Checking Online Status
+
+Below is an example of how to use the `useOnlineStatus` hook to display a message indicating whether the user is currently online or offline:
+
+```jsx copy
+import React from "react";
+import { useOnlineStatus } from "react-enhanced-hooks";
 
 function App() {
   const isOnline = useOnlineStatus();
 
   return (
     <div>
-      <p>You are currently {isOnline ? 'online' : 'offline'}</p>
+      <p>You are currently {isOnline ? "online" : "offline"}</p>
     </div>
   );
 }
 
 export default App;
 ```
+
+## How It Works
+
+- **isOnline**: The `useOnlineStatus` hook returns a boolean value (`true` or `false`) that represents the user's online status.
+  - If the user is connected to the internet, `isOnline` will be `true`.
+  - If the user loses connectivity or goes offline, `isOnline` will be `false`.
+
+This value automatically updates in real-time, ensuring that your UI always reflects the latest connectivity status.
+
+## Hook Signature
+
+```js copy
+const isOnline = useOnlineStatus();
+```
+
+**Returns**: A boolean value representing whether the user is currently online (`true`) or offline (`false`).
+
+## Key Features
+
+- **Real-time Connectivity**: Automatically updates the online/offline status as the network connection changes.
+- **Simple Usage**: Provides a straightforward boolean value to use in your UI.
+- **Global Event Listener**: Under the hood, this hook listens to the `window` events like `online` and `offline` to track the user's connectivity.
+
+## Full Example
+
+In a more advanced scenario, you might want to conditionally show some UI elements based on the user's connectivity, such as disabling features that require an internet connection.
+
+```jsx copy
+import React from "react";
+import { useOnlineStatus } from "react-enhanced-hooks";
+
+function App() {
+  const isOnline = useOnlineStatus();
+
+  return (
+    <div>
+      <p>You are currently {isOnline ? "online" : "offline"}</p>
+      {!isOnline && <p>Some features may be unavailable while offline.</p>}
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, if the user is offline, an additional message warns them that some features may be unavailable. You can use this hook to build a better user experience for offline handling.
+
+## Browser Support
+
+The `useOnlineStatus` hook works across modern browsers, which support the `navigator.onLine` property and the `online`/`offline` events. Be sure to test for compatibility if your app targets older browsers.
