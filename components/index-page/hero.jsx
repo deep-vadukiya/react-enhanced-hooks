@@ -158,14 +158,14 @@ const SVGComponent = (props) => (
 export function Hero() {
   return (
     <div className="flex-auto justify-center">
-      <section className="container mx-auto px-6 scroll-my-fluid-lg py-6">
-        <div className="bg-white/[0.08] backdrop-blur-sm shadow-inherit grid md:grid-cols-6 gap-4 p-12 md:p-8 rounded-xl min-h-64">
+      <section className="container mx-auto px-6 scroll-my-fluid-lg py-6 pt-8">
+        <div className="bg-white/[0.06] backdrop-blur-sm shadow-inherit grid md:grid-cols-6 gap-4 p-12 md:p-8 rounded-xl min-h-64 border border-gray-800/[0.06]">
           <div className="col-span-4 p-4 flex flex-col justify-center">
             <p className="text-4xl font-bold pb-2">React Enhanced Hooks</p>
-            <p className="text-sm font-normal pb-2">
+            <p className="text-sm font-medium pb-2">
               Simplify Your React Code with Custom Hooks
             </p>
-            <p className="text-sm font-normal">
+            <p className="text-sm font-medium">
               Efficient and reusable hooks for handling common React patterns.
             </p>
           </div>
@@ -176,10 +176,10 @@ export function Hero() {
         </div>
       </section>
 
-      <section className="container mx-auto px-6 scroll-my-fluid-lg py-6">
-        <div className="bg-white/[0.08] backdrop-blur-sm shadow-inherit p-12 md:p-8 rounded-xl min-h-64">
+      <section className="container mx-auto px-6 scroll-my-fluid-lg py-6 ">
+        <div className="bg-white/[0.06] backdrop-blur-sm shadow-inherit p-12 md:p-8 rounded-xl min-h-64 border border-gray-800/[0.06]">
           <div className="flex justify-center">
-            <p className="text-lg max-w-lg text-center">
+            <p className="text-lg max-w-lg text-center font-medium">
               "React Enhanced Hooks is a library that provides a collection of
               powerful, reusable hooks to supercharge your React development.
               Whether you're managing local storage, making API requests, or
@@ -209,7 +209,7 @@ export function Hero() {
       </section>
 
       <section className="container mx-auto px-6 scroll-my-fluid-lg py-6">
-        <div className="bg-white/[0.08] backdrop-blur-sm shadow-inherit grid md:grid-cols-6 gap-4 p-12 md:p-8 rounded-xl min-h-64">
+        <div className="bg-white/[0.06] backdrop-blur-sm shadow-inherit grid md:grid-cols-6 gap-4 p-12 md:p-8 rounded-xl min-h-64 border border-gray-800/[0.06]">
           <div className="col-span-2 p-6 flex flex-col justify-center">
             <p className="text-lg font-bold">useOnlineStatus</p>
             <p className="text-md">
