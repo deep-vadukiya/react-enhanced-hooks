@@ -1,5 +1,7 @@
 //
 
+import CodeBlock from "./code.mdx";
+
 const SVGComponent = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -193,6 +195,21 @@ export function Hero() {
             <button className="rounded-lg bg-[#008AE6] p-2 px-4">
               View on GitHub
             </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-6 scroll-my-fluid-lg py-6">
+        <div className="bg-white/[0.08] backdrop-blur-sm shadow-inherit grid md:grid-cols-6 gap-4 p-12 md:p-8 rounded-xl min-h-64">
+          <div className="col-span-2 p-6 flex flex-col justify-center">
+            <p className="text-lg font-bold">useOnlineStatus</p>
+            <p className="text-md">
+              A hook to monitor the user's online/offline status.
+            </p>
+          </div>
+
+          <div className="col-span-4 px-6 py-4 flex flex-col justify-center border rounded-lg overflow-hidden">
+            <CodeBlock />
           </div>
         </div>
       </section>
