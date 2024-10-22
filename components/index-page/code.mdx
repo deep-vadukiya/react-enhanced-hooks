@@ -1,0 +1,16 @@
+```js
+import React from "react";
+import { useOnlineStatus } from "react-enhanced-hooks";
+
+function App() {
+  const isOnline = useOnlineStatus();
+
+  return (
+    <div>
+      <p>You are currently {isOnline ? "online" : "offline"}</p>
+    </div>
+  );
+}
+
+export default App;
+```
