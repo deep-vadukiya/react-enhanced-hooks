@@ -1,5 +1,11 @@
 # react-enhanced-hooks
 
+## 2.1.0
+
+### Minor Changes
+
+- migrated repository with the nextJs for adding documentation site with pnpm. updated scripts
+
 ## 2.0.3
 
 ### Patch Changes
