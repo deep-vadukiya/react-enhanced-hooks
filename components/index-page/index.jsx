@@ -3,7 +3,9 @@
 export function IndexPage() {
   return (
     <div>
-      <b>Hero section</b>
+      <div className="flex-auto justify-center">
+        <p className="block justify-self-center text-xl text-red-600">Hello</p>
+      </div>
     </div>
   );
 }
