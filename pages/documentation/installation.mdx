@@ -32,3 +32,54 @@ via yarn
 ```bash copy
 yarn add react-enhanced-hooks
 ```
+
+Once installed, you can start importing and using any of the hooks provided by the library in your React components.
+
+## Basic Usage
+
+Here’s how you can quickly get started with one of the hooks, such as useLocalStorage.
+
+```js copy
+import { useLocalStorage } from "react-enhanced-hooks";
+
+function ExampleComponent() {
+  const [name, setName] = useLocalStorage("name", "John Doe");
+
+  return (
+    <div>
+      <p>Your name is: {name}</p>
+      <button onClick={() => setName("Jane Doe")}>Change Name</button>
+    </div>
+  );
+}
+```
+
+## Peer Dependencies
+
+React Enhanced Hooks relies on `react` and `react-dom`, which are already present in most React projects. Ensure you have them installed:
+
+```js copy
+pnpm add react react-dom
+```
+
+## TypeScript Support
+
+If you're using TypeScript, React Enhanced Hooks is fully typed. Each hook comes with built-in types, so you’ll benefit from autocomplete and better tooling.
+
+Here’s how you can get started with TypeScript:
+
+```ts copy
+import { useLocalStorage } from "react-enhanced-hooks";
+
+function ExampleComponent() {
+  const [value, setValue] = useLocalStorage<string>("key", "default value");
+
+  return <div>{value}</div>;
+}
+```
+
+The TypeScript types are inferred automatically, but you can explicitly set them if needed.
+
+## Additional Setup for Custom Hooks
+
+After installing the package, explore the documentation for specific hooks, including usage examples and advanced configurations.
