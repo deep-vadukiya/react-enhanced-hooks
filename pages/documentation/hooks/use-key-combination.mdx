@@ -1,0 +1,99 @@
+---
+title: useKeyCombination React Enhanced Hooks
+description: Custom hook for detecting key combinations using Ctrl or Cmd on different operating systems.
+---
+
+# `useKeyCombination`
+
+The `useKeyCombination` hook allows you to detect when a specific key is pressed in combination with `Ctrl` on Windows/Linux or `Cmd` on macOS. This is useful for keyboard shortcuts and improving user interactivity with keyboard combinations.
+
+## Features
+
+- Detects `Ctrl + key` combination on Windows and Linux.
+- Detects `Cmd + key` combination on macOS.
+- Works with any custom key specified by the developer.
+- Automatically adapts to the user's operating system.
+
+## Usage
+
+Here is an example of how you can use the useKeyCombination hook in your project:
+
+```jsx copy
+import React from "react";
+import { useKeyCombination } from "react-enhanced-hooks";
+
+function App() {
+  const isCombinationPressed = useKeyCombination("/");
+
+  return (
+    <div>
+      <p>
+        {isCombinationPressed
+          ? 'Ctrl/Cmd + "/" combination pressed'
+          : 'Press Ctrl/Cmd + "/" to trigger'}
+      </p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Parameters
+
+- **key1**: The key that should be combined with `Ctrl` on Windows/Linux or `Cmd` on macOS. It should be a string representing a valid keyboard key, such as `'a'`, `'b'`, `'Enter'`, etc.
+- **Return Value**: The hook returns a boolean that indicates whether the key combination is currently being pressed (`true`) or not (`false`).
+
+## Example
+
+Here’s how the hook works:
+
+```jsx copy
+import React from "react";
+import { useKeyCombination } from "react-enhanced-hooks";
+
+function App() {
+  const isCombinationPressed = useKeyCombination("s"); // Detects Ctrl + S or Cmd + S
+
+  return (
+    <div>
+      <p>
+        {isCombinationPressed ? "Save command activated" : "Press Ctrl/Cmd + S"}
+      </p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, the state changes to true whenever the user presses `Ctrl + S` (on Windows/Linux) or `Cmd + S` (on macOS). This can be used to trigger custom functionality, such as saving a document or triggering a hotkey.
+
+## How It Works
+
+The `useKeyCombination` hook internally detects the operating system using the `navigator.userAgent` and adapts the control key accordingly: - On macOS, it uses the `Cmd` key (`metaKey` in JavaScript). - On Windows/Linux, it uses the `Ctrl` key (`ctrlKey` in JavaScript).
+When the desired key is pressed along with the appropriate control key (`Ctrl` or `Cmd`), the state `isCombinationPressed` is set to `true`.
+
+### Cleanup
+
+The event listeners for `keydown` and `keyup` are automatically added when the hook is initialized, and removed when the component is unmounted, ensuring no memory leaks or side effects.
+
+```jsx
+useEffect(() => {
+  window.addEventListener("keydown", handleKeyDown);
+  window.addEventListener("keyup", handleKeyUp);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener("keyup", handleKeyUp);
+  };
+}, [key1]);
+```
+
+This ensures the hook cleans up after itself and doesn't leave lingering event listeners after unmounting.
+
+## Conclusion
+
+The `useKeyCombination` hook is a simple and powerful way to add key combination detection to your React components, whether for shortcuts, accessibility features, or interactive experiences.
+
+Get started with the useKeyCombination hook today!
