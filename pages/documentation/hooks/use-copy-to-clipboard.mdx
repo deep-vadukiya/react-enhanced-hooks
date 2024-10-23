@@ -1,0 +1,142 @@
+---
+title: useCopyToClipBoard - React Enhanced Hooks
+description: A custom React hook to copy text to the user's clipboard and track copy status.
+---
+
+# `useCopyToClipBoard` Hook
+
+The `useCopyToClipBoard` hook allows you to copy text to the user's clipboard programmatically and provides feedback on whether the text has been successfully copied. This is useful for implementing features like "Copy to Clipboard" buttons in your application.
+
+## Features
+
+- Copies text to the user's clipboard.
+- Provides a boolean state (`isCopied`) to indicate whether the text was copied successfully.
+- Automatically resets the `isCopied` state after a short timeout (default: 2 seconds).
+
+## Usage
+
+Here’s an example of how to use the useCopyToClipBoard hook in your React component:
+
+```jsx copy
+import React from "react";
+import { useCopyToClipBoard } from "react-enhanced-hooks";
+
+function CopyTextComponent() {
+  const { isCopied, copyToClipboard } = useCopyToClipBoard();
+
+  const textToCopy = "This is the text to be copied!";
+
+  return (
+    <div>
+      <button onClick={() => copyToClipboard(textToCopy)}>
+        {isCopied ? "Copied!" : "Copy to Clipboard"}
+      </button>
+    </div>
+  );
+}
+
+export default CopyTextComponent;
+```
+
+### Parameters
+
+The useCopyToClipBoard hook does not accept any parameters.
+
+### Return Values
+
+The hook returns an object containing the following properties:
+
+- **isCopied**: A boolean value indicating whether the text has been successfully copied to the clipboard. It will return true for 2 seconds after the copy action is completed, and then reset to false.
+- **copyToClipboard(text: string)**: A function that accepts a string as an argument and copies the provided text to the user's clipboard.
+
+## Example
+
+Here’s a detailed example showing how to use the useCopyToClipBoard hook for copying dynamic content:
+
+```jsx copy
+import React, { useState } from "react";
+import { useCopyToClipBoard } from "react-enhanced-hooks";
+
+function DynamicCopyComponent() {
+  const { isCopied, copyToClipboard } = useCopyToClipBoard();
+  const [textToCopy, setTextToCopy] = useState("Initial text to copy");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={textToCopy}
+        onChange={(e) => setTextToCopy(e.target.value)}
+        placeholder="Enter text to copy"
+      />
+      <button onClick={() => copyToClipboard(textToCopy)}>
+        {isCopied ? "Copied!" : "Copy"}
+      </button>
+    </div>
+  );
+}
+
+export default DynamicCopyComponent;
+```
+
+## How It Works
+
+The `useCopyToClipBoard` hook leverages the `navigator.clipboard` API to copy text. Here's a breakdown of how it works:
+
+```jsx
+navigator?.clipboard?.writeText(text).then(() => {
+  setIsCopied(true);
+  setTimeout(() => {
+    setIsCopied(false);
+  }, 2000);
+});
+```
+
+- The `copyToClipboard` function attempts to copy the provided text to the clipboard using the `writeText` method.
+- Once the text is copied, the hook sets `isCopied` to `true` and automatically resets it to `false` after 2 seconds using `setTimeout`. This provides feedback to the user that the text has been successfully copied.
+
+## Practical Use Cases
+
+- **Copy Button**: You can easily implement a "Copy to Clipboard" button for user input, generated content, or static information.
+
+- **Feedback to User**: The isCopied state can be used to give visual feedback to the user (e.g., changing button text or showing a confirmation message).
+
+- **Custom Copy Actions**: This hook allows you to programmatically copy any text to the clipboard, which can be used for features like sharing codes, copying links, or form data.
+
+### Example with Custom Styling
+
+Here’s an example with a styled copy button:
+
+```jsx copy
+import React from "react";
+import { useCopyToClipBoard } from "react-enhanced-hooks";
+
+function StyledCopyButton() {
+  const { isCopied, copyToClipboard } = useCopyToClipBoard();
+
+  return (
+    <div>
+      <button
+        onClick={() => copyToClipboard("Styled Copy Button!")}
+        style={{
+          backgroundColor: isCopied ? "green" : "blue",
+          color: "white",
+          padding: "10px 20px",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        {isCopied ? "Copied!" : "Copy Text"}
+      </button>
+    </div>
+  );
+}
+
+export default StyledCopyButton;
+```
+
+In this example, the button background color changes to green when the text is copied successfully, providing instant visual feedback.
+
+## Conclusion
+
+The `useCopyToClipBoard` hook simplifies the process of copying text to the clipboard and providing feedback to the user. Whether you’re building a copy button for user input, generated content, or static information, this hook provides a flexible solution for handling clipboard actions in React.

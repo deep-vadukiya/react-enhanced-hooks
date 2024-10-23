@@ -1,0 +1,116 @@
+---
+title: useKeyPress - React Enhanced Hook
+description: Custom hook to detect key presses and perform actions based on keyboard events.
+---
+
+# `useKeyPress` Hook
+
+The `useKeyPress` hook allows you to detect when a specific key is pressed on the keyboard. This can be useful for triggering actions such as opening a search bar when the `/` key is pressed, or canceling an action when the `Escape` key is pressed.
+
+## Features
+
+- Detects when a specific key is pressed.
+- Listens to both `keydown` and `keyup` events.
+- Flexible and can be used with any key by passing its value as a parameter.
+
+## Usage
+
+Below is an example of how you can use the useKeyPress hook in your component:
+
+```jsx copy
+import React from "react";
+import { useKeyPress } from "react-enhanced-hooks";
+
+function App() {
+  const isSlashPressed = useKeyPress("/"); // Detects the "/" key
+  const isEscapePressed = useKeyPress("Escape"); // Detects the "Escape" key
+
+  return (
+    <div>
+      <p>
+        {isSlashPressed
+          ? "Slash key is pressed!"
+          : 'Press "/" to open search bar'}
+      </p>
+      <p>
+        {isEscapePressed
+          ? "Escape key is pressed!"
+          : 'Press "Escape" to discard changes'}
+      </p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Parameters
+
+- **targetKey**: The key value that you want to detect when pressed. This is a required parameter and should be a valid [keyboard event key value](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values). For example: `"Enter"`, `"Escape"`, `"/"`, `"ArrowUp"`, etc.
+
+### Return Value
+
+The `useKeyPress` hook returns a boolean value:
+
+- `true` if the target key is currently being pressed.
+- `false` if the target key is not pressed.
+
+## Example
+
+Here’s how you can use the hook to detect multiple key presses and perform actions based on those keys:
+
+```jsx copy
+import React from "react";
+import { useKeyPress } from "react-enhanced-hooks";
+
+function KeyPressExample() {
+  const isSlashPressed = useKeyPress("/"); // Detects the "/" key
+  const isEscapePressed = useKeyPress("Escape"); // Detects the "Escape" key
+
+  return (
+    <div>
+      {isSlashPressed && <p>Slash key is pressed! Open the search bar.</p>}
+      {isEscapePressed && <p>Escape key is pressed! Discard changes.</p>}
+    </div>
+  );
+}
+
+export default KeyPressExample;
+```
+
+## How It Works
+
+The `useKeyPress` hook listens for both `keydown` and `keyup` events on the `window` object to detect whether a specific key is being pressed or not. When the specified key is pressed, it sets the state `keyPressed` to `true`, and when the key is released, it sets the state back to `false`.
+
+The hook cleans up the event listeners when the component is unmounted to prevent memory leaks.
+
+```jsx
+useEffect(() => {
+  window.addEventListener("keydown", handleKeyDown);
+  window.addEventListener("keyup", handleKeyUp);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener("keyup", handleKeyUp);
+  };
+}, [targetKey]);
+```
+
+This ensures that the event listeners are properly registered and unregistered based on the targetKey.
+
+### Example of Key Values
+
+You can pass any valid key value to the hook to detect specific key presses. Here are a few examples:
+
+```jsx
+const isEnterPressed = useKeyPress("Enter"); // Detects "Enter" key
+const isEscapePressed = useKeyPress("Escape"); // Detects "Escape" key
+const isArrowUpPressed = useKeyPress("ArrowUp"); // Detects "ArrowUp" key
+const isSlashPressed = useKeyPress("/"); // Detects "/" key
+```
+
+You can find the full list of key values [here](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values).
+
+## Conclusion
+
+The `useKeyPress` hook is a simple and powerful utility for detecting keyboard events in React applications. Whether you want to open a search bar, submit a form, or perform other actions based on key presses, this hook provides an easy and efficient way to handle key events.
