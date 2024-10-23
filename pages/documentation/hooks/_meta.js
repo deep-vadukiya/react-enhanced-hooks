@@ -6,5 +6,6 @@ export default {
     ['use-hover']: 'useHover',
     ['use-offset-top']: 'useOffSetTop',
     ['use-key-press']: 'useKeyPress',
+    ['use-document-title']: 'useDocumentTitle',
     ['use-key-combination']: 'useKeyCombination',
 }
