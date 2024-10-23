@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import CodeBlock from "./code.mdx";
+import { GITHUB_REPOSITORY_LINK } from "../../globalLinks";
 
 const SVGComponent = (props) => (
   <svg
@@ -196,10 +197,7 @@ export function Hero() {
               Get Started
             </Link>
 
-            <a
-              href="https://github.com/deep-vadukiya/react-enhanced-hooks"
-              target="_blank"
-            >
+            <a href={GITHUB_REPOSITORY_LINK} target="_blank">
               <button className="rounded-lg bg-[#008AE6] p-2 px-4">
                 View on GitHub
               </button>
