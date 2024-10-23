@@ -1,0 +1,142 @@
+---
+title: useDocumentTitle - React Enhanced Hooks
+description: A custom React hook to dynamically update the document title.
+---
+
+# `useDocumentTitle` Hook
+
+The `useDocumentTitle` hook is a simple and effective way to update the document's title dynamically from within your React components. This is useful when you want to set custom titles for different pages or views in a single-page application (SPA) to improve user experience and SEO.
+
+## Features
+
+- Updates the document title based on the provided string.
+- Re-runs and updates the title whenever the `title` prop changes.
+- Minimalistic and easy to implement.
+
+## Usage
+
+Below is an example of how you can use the useDocumentTitle hook in your component:
+
+```jsx copy
+import React from "react";
+import { useDocumentTitle } from "react-enhanced-hooks";
+
+function HomePage() {
+  useDocumentTitle("Home - My React App");
+
+  return (
+    <div>
+      <h1>Welcome to the Home Page</h1>
+    </div>
+  );
+}
+
+export default HomePage;
+```
+
+## Parameters
+
+**title**: A string that represents the desired title for the current page. This value will be displayed in the browser's title bar or tab.
+
+## Example
+
+Here’s a more detailed example of how to use `useDocumentTitle` across different components for dynamic title updates:
+
+```jsx copy
+import React from "react";
+import { useDocumentTitle } from "react-enhanced-hooks";
+
+function AboutPage() {
+  useDocumentTitle("About Us - My React App");
+
+  return (
+    <div>
+      <h1>About Us</h1>
+      <p>This is the About Us page of our application.</p>
+    </div>
+  );
+}
+
+function ContactPage() {
+  useDocumentTitle("Contact - My React App");
+
+  return (
+    <div>
+      <h1>Contact Us</h1>
+      <p>Reach out to us through this page.</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <HomePage />
+      <AboutPage />
+      <ContactPage />
+    </div>
+  );
+}
+
+export default App;
+```
+
+In the example above:
+
+- When navigating to the "Home" page, the document title will update to `"Home - My React App"`.
+- When visiting the "About" page, the title will change to `"About Us - My React App"`.
+- Similarly, for the "Contact" page, the title will update to `"Contact - My React App"`.
+
+## How It Works
+
+The `useDocumentTitle` hook leverages the `useEffect` hook to update the document's title whenever the `title` value changes. Here's a breakdown of how it works:
+
+```jsx
+useEffect(() => {
+  document.title = title;
+}, [title]);
+```
+
+- The `useEffect` hook is triggered whenever the `title` prop changes, and it sets the `document.title` to the new value.
+- The hook ensures that the title is always in sync with the component's state, allowing for dynamic updates based on user interactions or navigation.
+
+## Practical Use Cases
+
+- **Page Navigation**: Update the document title dynamically based on the active route in your single-page application.
+- **SEO Optimization**: Set meaningful and descriptive titles for each page to improve SEO rankings and provide a better user experience.
+- **User Engagement**: Displaying dynamic titles (such as showing notifications in the title) can engage users even when they are on a different browser tab.
+
+### Example with Dynamic Values
+
+Here’s an example where the document title changes based on user input:
+
+```jsx copy
+import React, { useState } from "react";
+import { useDocumentTitle } from "react-enhanced-hooks";
+
+function DynamicTitlePage() {
+  const [title, setTitle] = useState("My React App");
+
+  useDocumentTitle(title);
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Enter document title"
+      />
+      <p>Current title: {title}</p>
+    </div>
+  );
+}
+
+export default DynamicTitlePage;
+```
+
+In this example, the document title will update as the user types into the input field, providing a dynamic way to modify the browser's title.
+
+## Conclusion
+
+The `useDocumentTitle` hook is a simple yet powerful utility for managing document titles in React applications. By dynamically updating the title based on component state, you can improve user engagement, SEO, and overall user experience.

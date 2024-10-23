@@ -1,0 +1,117 @@
+---
+title: useOffSetTop - React Enhanced Hooks
+description: Custom hook to check if the page has been scrolled past a specified number of pixels from the top.
+---
+
+# `useOffSetTop` Hook
+
+The `useOffSetTop` hook allows you to detect if the page has been scrolled beyond a specified number of pixels from the top of the viewport. This can be useful for triggering animations, sticky headers, or loading new content based on scroll position.
+
+## Features
+
+- Detects if the page has been scrolled past a specified number of pixels.
+- Default scroll threshold of `100` pixels if no value is provided.
+- Lightweight and easy to use in React components.
+
+## Usage
+
+Below is an example of how you can use the useOffSetTop hook in your component:
+
+```jsx copy
+import React from "react";
+import { useOffSetTop } from "react-enhanced-hooks";
+
+function App() {
+  const isScrolled = useOffSetTop(150); // Will trigger when scrolled beyond 150px
+
+  return (
+    <div>
+      <p>
+        {isScrolled ? "You have scrolled more than 150 pixels" : "Scroll down!"}
+      </p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Parameters
+
+- **top**: This optional parameter specifies the number of pixels from the top at which the hook should return `true`. If no value is provided, it defaults to `100`.
+
+### Return Value
+
+The hook returns a boolean value:
+
+- `true` if the page has been scrolled more than the specified number of pixels.
+- `false` if the page has not yet been scrolled that far.
+
+## Example
+
+Here’s how you can use the hook with different scroll thresholds:
+
+```jsx copy
+import React from "react";
+import { useOffSetTop } from "react-enhanced-hooks";
+
+function ScrollExample() {
+  const hasScrolled100 = useOffSetTop(100); // Default threshold
+  const hasScrolled200 = useOffSetTop(200); // Custom threshold
+
+  return (
+    <div>
+      <p>
+        {hasScrolled100 ? "Scrolled more than 100px" : "Scroll to see more!"}
+      </p>
+      <p>{hasScrolled200 ? "Scrolled more than 200px" : "Keep scrolling!"}</p>
+    </div>
+  );
+}
+
+export default ScrollExample;
+```
+
+In this example:
+
+- `useOffSetTop(100)` will return `true` when the page has scrolled more than 100 pixels.
+
+- `useOffSetTop(200)` will return `true` when the page has scrolled more than 200 pixels.
+
+## How It Works
+
+The `useOffSetTop` hook listens for the `scroll` event on the `window` object and checks the vertical scroll position (`window.pageYOffset`). If the scroll position is greater than the specified number of pixels (or the default value of 100), the state `offsetTop` is set to `true`, indicating that the page has scrolled past the threshold.
+
+If the scroll position is less than the threshold, the state is reset to `false`. This happens dynamically as the user scrolls up and down the page.
+
+```jsx
+useEffect(() => {
+  window.onscroll = () => {
+    if (window.pageYOffset > isTop) {
+      setOffSetTop(true);
+    } else {
+      setOffSetTop(false);
+    }
+  };
+
+  return () => {
+    window.onscroll = null;
+  };
+}, [isTop]);
+```
+
+The hook cleans up by removing the onscroll event listener when the component is unmounted to prevent memory leaks.
+
+### Default Behavior
+
+If no value is passed to the hook, it will use a default scroll threshold of `100` pixels. This makes the hook versatile and easy to use without requiring additional parameters:
+
+```jsx
+const isScrolled = useOffSetTop(); // Defaults to 100 pixels
+```
+
+## Conclusion
+
+The `useOffSetTop` hook is a lightweight solution for detecting scroll positions in your React applications. Whether you need to show or hide elements, trigger animations, or perform any action based on scrolling, this hook provides an easy way to do it.
+
+Start using the `useOffSetTop` hook today to enhance user interactivity based on scroll position!
