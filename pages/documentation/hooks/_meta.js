@@ -7,5 +7,6 @@ export default {
     ['use-offset-top']: 'useOffSetTop',
     ['use-key-press']: 'useKeyPress',
     ['use-document-title']: 'useDocumentTitle',
+    ['use-copy-to-clipboard']: 'useCopyToClipBoard',
     ['use-key-combination']: 'useKeyCombination',
 }
