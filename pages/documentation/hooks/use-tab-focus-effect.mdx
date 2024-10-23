@@ -1,0 +1,154 @@
+---
+title: useTabFocusEffect - React Enhanced Hooks
+description: A custom React hook to detect browser tab focus and blur events and trigger callbacks accordingly.
+---
+
+# `useTabFocusEffect` Hook
+
+The `useTabFocusEffect` hook helps you monitor when the user focuses or blurs the browser tab. This can be useful for various cases, such as pausing actions when the tab is inactive and resuming them when the user returns to the tab. You can also trigger a callback when the tab is focused, enabling dynamic behaviors like refreshing data or resuming timers.
+
+## Features
+
+- Detects when the browser tab is focused or blurred.
+- Executes a callback function when the tab is focused.
+- Returns a boolean indicating whether the tab is currently focused.
+
+## Usage
+
+Here's how you can use the `useTabFocusEffect` hook in a React component:
+
+```jsx copy
+import React, { useState } from "react";
+import { useTabFocusEffect } from "react-enhanced-hooks";
+
+function FocusExample() {
+  const [message, setMessage] = useState("The tab is focused!");
+
+  useTabFocusEffect(() => {
+    // Callback to trigger when the tab is focused
+    setMessage("Tab is in focus!");
+  });
+
+  return (
+    <div>
+      <p>{message}</p>
+    </div>
+  );
+}
+
+export default FocusExample;
+```
+
+### Parameters
+
+- **callback: () => void**: A function to be called whenever the tab gains focus. This is useful for running specific logic, such as rehydrating UI data or restarting a paused process.
+
+### Return Values
+
+The hook returns a single boolean value:
+
+**isTabFocused: boolean**: A boolean indicating whether the tab is currently in focus `(true)` or not `(false)`.
+
+## Example
+
+Here’s an example of how you can use this hook to handle focused and blurred states:
+
+```jsx copy
+import React, { useState } from "react";
+import { useTabFocusEffect } from "react-enhanced-hooks";
+
+function TabFocusDemo() {
+  const [isTabFocused, setIsTabFocused] = useState(true);
+
+  const handleFocus = () => {
+    console.log("Tab is focused! Maybe fetch fresh data or resume tasks.");
+    setIsTabFocused(true);
+  };
+
+  useTabFocusEffect(handleFocus);
+
+  return (
+    <div>
+      <h1>{isTabFocused ? "Focused" : "Blurred"}</h1>
+      <p>
+        {isTabFocused
+          ? "The tab is currently focused. Resume any active tasks."
+          : "The tab is not focused. Maybe pause your actions here."}
+      </p>
+    </div>
+  );
+}
+
+export default TabFocusDemo;
+```
+
+In this example:
+
+The hook detects whether the tab is focused and triggers the provided `handleFocus` callback to update the UI or fetch fresh data when the tab becomes active.
+
+- The component displays different messages based on the focus state of the tab.
+
+## How It Works
+
+The `useTabFocusEffect` hook leverages browser window events to determine the tab's focus status:
+
+When the tab is in focus, it listens for the `focus` event, triggers the provided callback (if any), and sets the `isTabFocused` state to `true`.
+
+When the tab loses focus, it listens for the `blur` event and sets the `isTabFocused` state to `false`.
+
+The hook cleans up the event listeners during component unmount to prevent memory leaks.
+
+```jsx
+window.addEventListener("focus", handleTabFocus);
+window.addEventListener("blur", handleTabBlur);
+
+return () => {
+  window.removeEventListener("focus", handleTabFocus);
+  window.removeEventListener("blur", handleTabBlur);
+};
+```
+
+### Practical Use Cases
+
+- **API Calls on Focus**: Automatically re-fetch data when the user returns to the tab, ensuring the UI is always up-to-date.
+
+- **Timers**: Start or stop a timer depending on whether the tab is active. This can be useful for tracking time-based activities.
+
+- **Saving Resources**: Pause unnecessary actions or background processes when the tab is blurred, helping save resources and improve performance.
+
+### Example: Pause and Resume a Timer
+
+```jsx copy
+import React, { useState, useEffect } from "react";
+import { useTabFocusEffect } from "react-enhanced-hooks";
+
+function TimerComponent() {
+  const [time, setTime] = useState(0);
+
+  useTabFocusEffect(() => {
+    console.log("Tab focused. Resuming the timer...");
+  });
+
+  useEffect(() => {
+    let timer;
+    if (document.hasFocus()) {
+      timer = setInterval(() => setTime((prevTime) => prevTime + 1), 1000);
+    }
+    return () => clearInterval(timer);
+  }, [time]);
+
+  return (
+    <div>
+      <h1>{time}</h1>
+    </div>
+  );
+}
+
+export default TimerComponent;
+```
+
+This component keeps track of a timer and only updates when the tab is in focus. When the tab is blurred, the timer is paused, saving resources while the tab is inactive.
+
+## Conclusion
+
+The `useTabFocusEffect` hook is a powerful tool for handling tab focus events in your React application. Whether you're updating UI, fetching data, or pausing background processes, this hook provides an easy and reliable way to detect and respond to tab focus and blur events.
